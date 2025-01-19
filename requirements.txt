@@ -1,0 +1,5 @@
+python-dotenv==1.0.0
+spotipy==2.23.0
+openai==0.28.1
+SpeechRecognition==3.10.0
+PyAudio==0.2.13
