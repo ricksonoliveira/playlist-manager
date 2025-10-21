@@ -1,5 +1,20 @@
-python-dotenv==1.0.0
+# Django & Web Framework
+Django==4.2.7
+djangorestframework==3.14.0
+django-cors-headers==4.3.1
+dj-database-url==2.1.0
+gunicorn==21.2.0
+
+# Spotify Integration
 spotipy==2.23.0
+
+# AI Integration
 openai==0.28.1
+
+# Voice Recognition
 SpeechRecognition==3.10.0
 PyAudio==0.2.13
+
+# Environment & Configuration
+python-dotenv==1.0.0
+python-decouple==3.8
