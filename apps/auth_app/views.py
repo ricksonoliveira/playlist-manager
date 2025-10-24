@@ -8,10 +8,12 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from django.views.decorators.csrf import csrf_exempt
 from apps.core.models import UserProfile
 from apps.api.serializers import UserSerializer, UserProfileSerializer
 
 
+@csrf_exempt
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def register(request):
@@ -51,32 +53,43 @@ def register(request):
     return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
+@csrf_exempt
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def login_view(request):
-    """Login user with username and password."""
-    username = request.data.get('username')
+    """Login user with email and password."""
+    email = request.data.get('email')
     password = request.data.get('password')
-    
-    if not all([username, password]):
+
+    if not all([email, password]):
         return Response(
-            {'error': 'Missing required fields: username, password'},
+            {'error': 'Missing required fields: email, password'},
             status=status.HTTP_400_BAD_REQUEST
         )
-    
-    user = authenticate(request, username=username, password=password)
-    
+
+    # Find user by email
+    try:
+        user = User.objects.get(email=email)
+    except User.DoesNotExist:
+        return Response(
+            {'error': 'Invalid credentials'},
+            status=status.HTTP_401_UNAUTHORIZED
+        )
+
+    # Authenticate with username (Django's authenticate uses username)
+    user = authenticate(request, username=user.username, password=password)
+
     if user is None:
         return Response(
             {'error': 'Invalid credentials'},
             status=status.HTTP_401_UNAUTHORIZED
         )
-    
+
     login(request, user)
-    
+
     profile, created = UserProfile.objects.get_or_create(user=user)
     profile_serializer = UserProfileSerializer(profile)
-    
+
     return Response({
         'user': UserSerializer(user).data,
         'profile': profile_serializer.data,

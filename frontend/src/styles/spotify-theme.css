@@ -1,0 +1,210 @@
+/* Spotify Theme - Dark Mode with Green Accent */
+
+:root {
+  /* Spotify Colors */
+  --spotify-green: #1DB954;
+  --spotify-green-hover: #1ed760;
+  --spotify-dark: #121212;
+  --spotify-darker: #0f0f0f;
+  --spotify-card: #1e1e1e;
+  --spotify-border: #282828;
+  --spotify-text: #ffffff;
+  --spotify-text-secondary: #b3b3b3;
+  --spotify-text-tertiary: #7f7f7f;
+  --spotify-error: #e74c3c;
+  --spotify-success: #1DB954;
+  
+  /* Transitions */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: var(--spotify-dark);
+  color: var(--spotify-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  background-color: var(--spotify-dark);
+  min-height: 100vh;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--spotify-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--spotify-border);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--spotify-text-tertiary);
+}
+
+/* Form Elements */
+input, textarea, select {
+  background-color: var(--spotify-card);
+  color: var(--spotify-text);
+  border: 1px solid var(--spotify-border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 14px;
+  transition: var(--transition);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--spotify-green);
+  box-shadow: 0 0 0 3px rgba(29, 185, 84, 0.1);
+}
+
+input::placeholder {
+  color: var(--spotify-text-tertiary);
+}
+
+/* Buttons */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  border-radius: 24px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background-color: var(--spotify-green);
+  color: var(--spotify-dark);
+  padding: 12px 32px;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--spotify-green-hover);
+  transform: scale(1.04);
+}
+
+.btn-primary:disabled {
+  background-color: var(--spotify-text-tertiary);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--spotify-text);
+  border: 1px solid var(--spotify-border);
+  padding: 10px 24px;
+}
+
+.btn-secondary:hover {
+  border-color: var(--spotify-green);
+  color: var(--spotify-green);
+}
+
+/* Cards */
+.card {
+  background-color: var(--spotify-card);
+  border: 1px solid var(--spotify-border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: var(--transition);
+}
+
+.card:hover {
+  border-color: var(--spotify-green);
+  box-shadow: 0 8px 24px rgba(29, 185, 84, 0.1);
+}
+
+/* Alerts */
+.alert {
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border-left: 4px solid;
+}
+
+.alert-error {
+  background-color: rgba(231, 76, 60, 0.1);
+  border-left-color: var(--spotify-error);
+  color: #ff6b6b;
+}
+
+.alert-success {
+  background-color: rgba(29, 185, 84, 0.1);
+  border-left-color: var(--spotify-success);
+  color: var(--spotify-green-hover);
+}
+
+.alert-info {
+  background-color: rgba(52, 152, 219, 0.1);
+  border-left-color: #3498db;
+  color: #5dade2;
+}
+
+/* Links */
+a {
+  color: var(--spotify-green);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--spotify-green-hover);
+}
+
+/* Text Utilities */
+.text-secondary {
+  color: var(--spotify-text-secondary);
+}
+
+.text-tertiary {
+  color: var(--spotify-text-tertiary);
+}
+
+/* Gradient Background */
+.gradient-bg {
+  background: linear-gradient(135deg, var(--spotify-dark) 0%, var(--spotify-darker) 100%);
+}
+
+/* Loading Spinner */
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--spotify-border);
+  border-top-color: var(--spotify-green);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  input, textarea, select {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}
+

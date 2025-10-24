@@ -13,7 +13,6 @@ openai==0.28.1
 
 # Voice Recognition
 SpeechRecognition==3.10.0
-PyAudio==0.2.13
 
 # Environment & Configuration
 python-dotenv==1.0.0

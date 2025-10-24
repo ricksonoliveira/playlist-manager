@@ -1,0 +1,31 @@
+<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Black circle background -->
+  <circle cx="12" cy="12" r="12" fill="#000000" />
+  
+  <!-- White curved lines - same thickness, increasing width from bottom to top -->
+  <!-- Top line - longest -->
+  <path
+    d="M4 7C4 7 8 5.5 12 5.5c6 0 8 2 8 2"
+    stroke="white"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    fill="none"
+  />
+  <!-- Middle line - medium width -->
+  <path
+    d="M5 12C5 12 8.5 10.5 12 10.5c5.5 0 7 2 7 2"
+    stroke="white"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    fill="none"
+  />
+  <!-- Bottom line - shortest -->
+  <path
+    d="M6 17C6 17 9 15.5 12 15.5c5 0 6 2 6 2"
+    stroke="white"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    fill="none"
+  />
+</svg>
+

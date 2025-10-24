@@ -124,9 +124,22 @@ REST_FRAMEWORK = {
 # CORS Configuration
 CORS_ALLOWED_ORIGINS = config(
     'CORS_ALLOWED_ORIGINS',
-    default='http://localhost:3000,http://localhost:8000',
+    default='http://localhost:3000,http://localhost:3001,http://localhost:8000',
     cast=lambda v: [s.strip() for s in v.split(',')]
 )
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
 
 # Spotify Configuration
 SPOTIFY_CLIENT_ID = config('SPOTIFY_CLIENT_ID', default='')
