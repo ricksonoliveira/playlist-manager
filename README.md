@@ -2,6 +2,17 @@
 
 A modern web-based SaaS application for managing Spotify playlists with voice commands and AI-powered suggestions. Built with Django backend and React frontend.
 
+## How it looks like
+
+### Signup page:
+![Sign Up](image-2.png)
+
+### Login page:
+![Sign In page](image-1.png)
+
+### Landing page when spotify is not connected:
+![Landing page when spotify is not connected](image.png)
+
 ## Features
 
 - 🎤 Voice command recognition
